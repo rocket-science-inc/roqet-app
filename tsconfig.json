@@ -1,0 +1,25 @@
+{
+    "compilerOptions": {
+        "noImplicitAny": false,
+        "allowJs": true,
+        "allowSyntheticDefaultImports": true,
+        "esModuleInterop": true,
+        "isolatedModules": false,
+        "jsx": "react",
+        "lib": ["es6"],
+        "moduleResolution": "node",
+        "noEmit": false,
+        "strict": true,
+        "target": "esnext",
+        "baseUrl": "./src",
+        "paths": {
+            "@environment": ["./../environment.ts"],
+            "@/*": ["./*"],
+            "@roqet/*": ["./roqet/*"]
+        },
+        "typeRoots": [
+            "node_modules/@types"
+        ]
+    },
+    "exclude": ["node_modules", "babel.config.js", "metro.config.js", "jest.config.js", "__tests__"]
+}
