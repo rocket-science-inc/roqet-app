@@ -1,0 +1,21 @@
+@font-face {
+	font-family: "Roqet";
+	src: url("fonts/Roqet.ttf") format("truetype");
+}
+
+.rct {
+	line-height: 1;
+}
+
+.rct:before {
+	font-family: Roqet !important;
+	font-style: normal;
+	font-weight: normal !important;
+	vertical-align: top;
+}
+
+.rct-home:before {
+	content: "\f101";
+}
+
+/*# sourceMappingURL=assets.styles.css.map*/
