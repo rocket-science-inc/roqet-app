@@ -4,9 +4,9 @@ module.exports = {
         ["module-resolver", {
             root: "./src",
             alias: {
-                "@environment": "roqet/src/environment.ts",
                 "@": "roqet/src",
-                "@roqet": "roqet/src/roqet"
+                "@roqet": "roqet/src/roqet",
+                "@common": "roqet/src/common"
             }
         }]
     ]

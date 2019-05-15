@@ -1,16 +1,21 @@
 import * as actions from "./events.actions";
-// import { $events, IQueryArgs } from "@api/events";
+import { RctApi } from "@roqet/api";
 
-export interface IEventsScreenOperations {
-    getEvents(args:any): void
+let QueryEvent = {
+    total: true,
+    pages: true,
+    records: {
+        id: true,
+        title: true
+    }
 }
 
-export const getEvents = (args:any) => {
+export const loadEvents = (params:rct.api.IEventQueryParams) => {
     return (dispatch) => {
-        // Promise.resolve(dispatch(actions.loading(true)))
-        //     .then(() => $events.query(args))
-        //     .then((conversations) => dispatch(actions.evetsLoaded(conversations)))
-        //     .then(() => dispatch(actions.loading(false)))
-        //     .catch(console.log)
+        Promise.resolve(dispatch(actions.loading(true)))
+            .then(() => RctApi.event.query(params, QueryEvent))
+            .then(({events}) => dispatch(actions.evetsLoaded(events)))
+            .then(() => dispatch(actions.loading(false)))
+            .catch(console.error)
     }
 };

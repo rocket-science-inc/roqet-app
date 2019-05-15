@@ -1,57 +1,53 @@
 import * as React from "react";
-// import {
-// 	Container, Content, Body, Button,
-//     Header, Title, Left, Right
-// } from "native-base";
-import { Text } from "react-native";
+import {
+	Container, Content, Body, Button,
+    Header, Title, Left, Right
+} from "native-base";
+import { FlatList } from "react-native";
 // import { Actions } from "react-native-router-flux";
-// import { Icon, EventCard } from "@commons/components";
-import { IEventsScreenOperations } from "./events.operations";
+import { Icon } from "@roqet/ui";
+import { EventCard } from "@common/components";
 
-export interface IEventsScreenProps extends IEventsScreenOperations {
-    records: any[]
-};
-
-export class EventsScreen extends React.Component<IEventsScreenProps> {
+export class EventsScreen extends React.Component<rct.events.IProps, rct.events.IState> {
 
     public componentDidMount(){
-        this.props.getEvents({
-            page: 1,
+        this.props.loadEvents({
+            page: this.props.page,
             count: 25
         })
     };
 
-    // private renderCard({ item }):any {
-    //     return (<EventCard {...item} key={item.id} />)
-    // };
+    private renderCard({ item }):any {
+        console.log(item)
+        return (<EventCard {...item} />)
+    };
 
     public render():any {
         return (
-            <Text>123</Text>
-            // <Container>
-            //     <Header>
-            //         <Left>
-            //             <Button transparent onPress={() => Actions.pop()}>
-            //                 <Icon name="arrow-left" size={20} />
-            //             </Button>
-            //         </Left>
-            //         <Body>
-            //             <Title>Events</Title>
-            //         </Body>
-            //         <Right>
-            //             <Button transparent onPress={() => Actions.push("eventsFilters")}>
-            //                 <Icon name="filter" size={20} />
-            //             </Button>
-            //         </Right>
-            //     </Header>
-            //     <Content>
-            //         <FlatList
-            //             data={this.props.records}
-            //             renderItem={this.renderCard.bind(this)}
-            //             keyExtractor={(item) => item.id}
-            //         />
-            //     </Content>
-            // </Container>
+            <Container>
+                <Header>
+                    <Left>
+                        {/* <Button transparent onPress={() => Actions.pop()}>
+                            <Icon name="arrow-left" size={20} />
+                        </Button> */}
+                    </Left>
+                    <Body>
+                        <Title>Roqet</Title>
+                    </Body>
+                    <Right>
+                        {/* <Button transparent onPress={() => Actions.push("eventsFilters")}>
+                            <Icon name="filter" size={20} />
+                        </Button> */}
+                    </Right>
+                </Header>
+                <Content>
+                    <FlatList
+                        data={this.props.records}
+                        renderItem={this.renderCard.bind(this)}
+                        keyExtractor={(item) => item.id.toString()}
+                    />
+                </Content>
+            </Container>
         )
     }
 
