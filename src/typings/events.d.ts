@@ -13,7 +13,8 @@ declare namespace rct.events {
         total: number,
         page: number,
         pages: number,
-        records: any[]
+        nextPage: number,
+        records: rct.IEvent[]
     }
 
     interface IOterations {

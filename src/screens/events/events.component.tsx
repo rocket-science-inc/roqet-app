@@ -1,7 +1,7 @@
 import * as React from "react";
 import {
-	Container, Content, Body, Button,
-    Header, Title, Left, Right
+	Container, Content, Body,
+    Header, Title, Left, Right, Spinner
 } from "native-base";
 import { FlatList, Dimensions } from "react-native";
 // import { Actions } from "react-native-router-flux";
@@ -18,11 +18,21 @@ export class EventsScreen extends React.Component<rct.events.IProps, rct.events.
         return Dimensions.get("screen").width * 0.66
     };
 
+    private get hasMoreRecords():boolean {
+        return this.props.page < this.props.pages && !this.props.loading
+    };
+
+    private load():void {
+        if (this.hasMoreRecords) {
+            this.props.loadEvents({
+                page: this.props.nextPage,
+                count: 25
+            })
+        }
+    };
+
     public componentDidMount(){
-        this.props.loadEvents({
-            page: this.props.page,
-            count: 25
-        })
+        this.load();
     };
 
     public render():any {
@@ -43,11 +53,15 @@ export class EventsScreen extends React.Component<rct.events.IProps, rct.events.
                         </Button> */}
                     </Right>
                 </Header>
-                <Content>
+                <Content style={{flex: 1}} contentContainerStyle={{flex: 1}}>
                     <FlatList
                         data={this.props.records}
                         renderItem={({item}) => <EventCard {...item} width={this.width} height={this.height} />}
                         keyExtractor={(item) => item.id.toString()}
+                        onEndReached={() => this.load()}
+                        onEndReachedThreshold={3}
+                        initialNumToRender={10}
+                        ListFooterComponent={() => this.props.loading ? <Spinner /> : null}
                     />
                 </Content>
             </Container>
