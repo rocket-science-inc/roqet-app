@@ -1,4 +1,4 @@
-import React from "react"
+import React, { Component } from "react"
 import { Provider, connect } from "react-redux";
 import { Router } from "react-native-router-flux"
 import { PersistGate } from "redux-persist/integration/react";
@@ -8,10 +8,16 @@ import { Store, Persistor } from "./store";
 
 const ReduxRouter = connect()(Router);
 
-export const Roqet = () => (
-	<Provider store={Store}>
-		<PersistGate /*loading={<Loader />}*/ persistor={Persistor}>
-			<ReduxRouter scenes={Scenes} />
-		</PersistGate>
-	</Provider>
-);
+export class Roqet extends Component {
+
+	public render():JSX.Element {
+		return (
+			<Provider store={Store}>
+				<PersistGate /*loading={<Loader />}*/ persistor={Persistor}>
+					<ReduxRouter scenes={Scenes} />
+				</PersistGate>
+			</Provider>
+		)
+	};
+
+};

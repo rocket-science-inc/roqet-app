@@ -35,6 +35,7 @@ export class EventsScreen extends React.Component<rct.events.IProps, rct.events.
     };
 
     public render():any {
+        console.log(this.props.records)
         return (
             <Container>
                 <Header>
