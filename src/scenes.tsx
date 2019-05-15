@@ -3,6 +3,10 @@ import { Actions, Scene, Modal } from "react-native-router-flux";
 import { Icon } from "@roqet/ui";
 
 import { EventsScreenContainer } from "@/screens/events/events.container";
+import { ProfileScreenContainer } from "@/screens/profile/profile.container";
+import { SettingsScreenContainer } from "./screens/settings/settings.container";
+
+import { LanguageModalContainer } from "@/modals/language/language.container";
 
 export const Scenes = Actions.create(
 	<Modal hideNavBar>
@@ -13,41 +17,19 @@ export const Scenes = Actions.create(
 					icon={() => <Icon name="home" size={22} />}
 					component={EventsScreenContainer}
 				/>
-				{/* <Scene hideNavBar
-					key="main.checkin"
-					icon={() => <Icon name="map-pin" size={30} />}
-					component={CheckinScreenContainer}
-				/>
-				<Scene hideNavBar
-					key="main.profile"
-					icon={() => <Icon name="user" size={22} />}
-					component={ProfileScreenContainer}
-				/> */}
 			</Scene>
-			{/* <Scene hideNavBar
-				key="chats"
-				component={ChatsScreenContainer}
+			<Scene hideNavBar
+				key="profile"
+				component={ProfileScreenContainer}
 			></Scene>
 			<Scene hideNavBar
-				key="notifications"
-				component={NotificationsScreenContainer}
+				key="settings"
+				component={SettingsScreenContainer}
 			></Scene>
-			<Scene hideNavBar
-				key="events"
-				component={EventsScreenContainer}
-			></Scene>
-			<Scene hideNavBar
-				key="event"
-				component={EventScreenContainer}
-			></Scene> */}
 		</Scene>
-		{/* <Scene hideNavBar
-			key="eventsFilters"
-			component={EventsFiltersModalContainer}
+		<Scene hideNavBar initial
+			key="language"
+			component={LanguageModalContainer}
 		></Scene>
-		<Scene hideNavBar
-			key="qrcode"
-			component={QRCodeModalContainer}
-		></Scene> */}
 	</Modal>
 )

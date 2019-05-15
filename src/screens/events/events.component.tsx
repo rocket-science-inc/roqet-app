@@ -1,11 +1,13 @@
 import * as React from "react";
 import {
-	Container, Content, Body,
+	Container, Content, Body, Button,
     Header, Title, Left, Right, Spinner
 } from "native-base";
 import { FlatList, Dimensions } from "react-native";
+import { Actions } from "react-native-router-flux";
 import { EventCard } from "@common/components";
 import { i18n } from "@roqet/i18n";
+import { Icon } from "@roqet/ui";
 
 export class EventsScreen extends React.Component<rct.events.IProps, rct.events.IState> {
 
@@ -35,14 +37,13 @@ export class EventsScreen extends React.Component<rct.events.IProps, rct.events.
     };
 
     public render():any {
-        console.log(this.props.records)
         return (
             <Container>
                 <Header>
                     <Left>
-                        {/* <Button transparent onPress={() => Actions.pop()}>
-                            <Icon name="arrow-left" size={20} />
-                        </Button> */}
+                        <Button transparent onPress={() => Actions.push("profile")}>
+                            <Icon name="user" size={20} />
+                        </Button>
                     </Left>
                     <Body>
                         <Title>{i18n.t("name")}</Title>

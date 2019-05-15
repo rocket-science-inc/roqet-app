@@ -1,5 +1,5 @@
-import common from "./../common";
+import global from "../global";
 
 export const ru = {
-    ...common
+    ...global
 };

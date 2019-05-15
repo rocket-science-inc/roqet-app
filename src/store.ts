@@ -4,31 +4,18 @@ import storage from 'redux-persist/lib/storage';
 import thunk from "redux-thunk"
 import * as logger from "redux-logger";
 
-// import { HomeScreenReducer } from "./screens/main/home/home.reducer";
-// import { CheckinScreenReducer } from "./screens/main/checkin/checkin.reducer";
-// import { ProfileScreenReducer } from "./screens/main/profile/profile.reducer";
-// import { ChatsScreenReducer } from "./screens/chats/chats.reducer";
-// import { NotificationsScreenReducer } from "./screens/notifications/notifications.reducer";
-// import { EventsScreenReducer } from "./screens/events/events.reducer";
-// import { EventsFiltersModalReducer} from "./modals/events-filters/events.filters.reducer";
-// import { EventScreenReducer } from "./screens/event/event.reducer";
-
 import { EventsScreenReducer } from "@/screens/events/events.reducer";
+import { ProfileScreenReducer } from "@/screens/profile/profile.reducer";
+import { SettingsScreenReducer } from "@/screens/settings/settings.reducer";
 
 import autoMergeLevel2 from 'redux-persist/lib/stateReconciler/autoMergeLevel2';
 
 const middleware = [thunk].concat(__DEV__ && typeof(logger) == "function" ? [logger] : []);
 
 const rootReducer = combineReducers({
-	events: EventsScreenReducer
-	// home: HomeScreenReducer,
-	// checkin: CheckinScreenReducer,
-	// profile: ProfileScreenReducer,
-	// chats: ChatsScreenReducer,
-	// notifications: NotificationsScreenReducer,
-	// events: EventsScreenReducer,
-	// event: EventScreenReducer,
-	// eventsFilters: EventsFiltersModalReducer
+	events: EventsScreenReducer,
+	profile: ProfileScreenReducer,
+	settings: SettingsScreenReducer
 });
 
 const Reducer = persistReducer({

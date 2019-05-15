@@ -1,5 +1,7 @@
-import common from "./../common";
+import global from "../global";
+import common from "./common";
 
 export const en = {
+    ...global,
     ...common
 };

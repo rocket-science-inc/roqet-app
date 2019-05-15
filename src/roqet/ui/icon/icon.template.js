@@ -5,7 +5,13 @@
 
 import createIconSet from 'react-native-vector-icons/lib/create-icon-set';
 const glyphMap = {
-  "home": 61697
+  "check": 61697,
+  "chevron-left": 61698,
+  "chevron-right": 61699,
+  "globe": 61700,
+  "home": 61701,
+  "settings": 61702,
+  "user": 61703
 };
 
 const iconSet = createIconSet(glyphMap, 'Roqet', 'Roqet.ttf');
