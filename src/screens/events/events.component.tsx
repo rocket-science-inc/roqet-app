@@ -4,9 +4,8 @@ import {
     Header, Title, Left, Right, Spinner
 } from "native-base";
 import { FlatList, Dimensions } from "react-native";
-// import { Actions } from "react-native-router-flux";
-import { Icon } from "@roqet/ui";
 import { EventCard } from "@common/components";
+import { i18n } from "@roqet/i18n";
 
 export class EventsScreen extends React.Component<rct.events.IProps, rct.events.IState> {
 
@@ -45,7 +44,7 @@ export class EventsScreen extends React.Component<rct.events.IProps, rct.events.
                         </Button> */}
                     </Left>
                     <Body>
-                        <Title>Roqet</Title>
+                        <Title>{i18n.t("name")}</Title>
                     </Body>
                     <Right>
                         {/* <Button transparent onPress={() => Actions.push("eventsFilters")}>

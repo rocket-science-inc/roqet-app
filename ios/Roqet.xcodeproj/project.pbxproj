@@ -42,6 +42,8 @@
 		ED2971652150620600B7C4FE /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED2971642150620600B7C4FE /* JavaScriptCore.framework */; };
 		284440B1E2FB4FF0BF9F21F1 /* libReactNativeConfig.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F05BCE5180494C6A949C305B /* libReactNativeConfig.a */; };
 		14DF9D0CA0D9405DAB122B67 /* libReactNativeConfig-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DDC20D3A21441858B6C0B3F /* libReactNativeConfig-tvOS.a */; };
+		E9B3CF673A41445C989151B3 /* libRNLocalize.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A7939D3B344A4E3DB88C675E /* libRNLocalize.a */; };
+		DB23C9E9CBA14376BF92586C /* libRNLocalize-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5831922C96594ED4967B584A /* libRNLocalize-tvOS.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -353,6 +355,9 @@
 		940A07D1F0BC454AB12A3741 /* ReactNativeConfig.xcodeproj */ = {isa = PBXFileReference; name = "ReactNativeConfig.xcodeproj"; path = "../node_modules/react-native-config/ios/ReactNativeConfig.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
 		F05BCE5180494C6A949C305B /* libReactNativeConfig.a */ = {isa = PBXFileReference; name = "libReactNativeConfig.a"; path = "libReactNativeConfig.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
 		9DDC20D3A21441858B6C0B3F /* libReactNativeConfig-tvOS.a */ = {isa = PBXFileReference; name = "libReactNativeConfig-tvOS.a"; path = "libReactNativeConfig-tvOS.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
+		AAEB843D7136460B8CC2AE1D /* RNLocalize.xcodeproj */ = {isa = PBXFileReference; name = "RNLocalize.xcodeproj"; path = "../node_modules/react-native-localize/ios/RNLocalize.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
+		A7939D3B344A4E3DB88C675E /* libRNLocalize.a */ = {isa = PBXFileReference; name = "libRNLocalize.a"; path = "libRNLocalize.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
+		5831922C96594ED4967B584A /* libRNLocalize-tvOS.a */ = {isa = PBXFileReference; name = "libRNLocalize-tvOS.a"; path = "libRNLocalize-tvOS.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -382,6 +387,7 @@
 				00C302EA1ABCBA2D00DB3ED1 /* libRCTVibration.a in Frameworks */,
 				139FDEF61B0652A700C62182 /* libRCTWebSocket.a in Frameworks */,
 				284440B1E2FB4FF0BF9F21F1 /* libReactNativeConfig.a in Frameworks */,
+				E9B3CF673A41445C989151B3 /* libRNLocalize.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -399,6 +405,8 @@
 				2D02E4C71E0B4AEC006451C7 /* libRCTText-tvOS.a in Frameworks */,
 				2D02E4C81E0B4AEC006451C7 /* libRCTWebSocket-tvOS.a in Frameworks */,
 				14DF9D0CA0D9405DAB122B67 /* libReactNativeConfig-tvOS.a in Frameworks */,
+				309AA73FFEE948A29324F594 /* libRNI18n-tvOS.a in Frameworks */,
+				DB23C9E9CBA14376BF92586C /* libRNLocalize-tvOS.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -574,6 +582,7 @@
 				00C302DF1ABCB9EE00DB3ED1 /* RCTVibration.xcodeproj */,
 				139FDEE61B06529A00C62182 /* RCTWebSocket.xcodeproj */,
 				940A07D1F0BC454AB12A3741 /* ReactNativeConfig.xcodeproj */,
+				AAEB843D7136460B8CC2AE1D /* RNLocalize.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -1218,6 +1227,7 @@
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-config/ios/ReactNativeConfig",
+					"$(SRCROOT)\..\node_modules\react-native-localize\ios",
 				);
 			};
 			name = Debug;
@@ -1245,6 +1255,7 @@
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-config/ios/ReactNativeConfig",
+					"$(SRCROOT)\..\node_modules\react-native-localize\ios",
 				);
 			};
 			name = Release;
@@ -1268,6 +1279,7 @@
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-config/ios/ReactNativeConfig",
+					"$(SRCROOT)\..\node_modules\react-native-localize\ios",
 				);
 			};
 			name = Debug;
@@ -1290,6 +1302,7 @@
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-config/ios/ReactNativeConfig",
+					"$(SRCROOT)\..\node_modules\react-native-localize\ios",
 				);
 			};
 			name = Release;
@@ -1325,6 +1338,7 @@
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-config/ios/ReactNativeConfig",
+					"$(SRCROOT)\..\node_modules\react-native-localize\ios",
 				);
 			};
 			name = Debug;
@@ -1360,6 +1374,7 @@
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-config/ios/ReactNativeConfig",
+					"$(SRCROOT)\..\node_modules\react-native-localize\ios",
 				);
 			};
 			name = Release;
@@ -1394,6 +1409,7 @@
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-config/ios/ReactNativeConfig",
+					"$(SRCROOT)\..\node_modules\react-native-localize\ios",
 				);
 			};
 			name = Debug;
@@ -1428,6 +1444,7 @@
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-config/ios/ReactNativeConfig",
+					"$(SRCROOT)\..\node_modules\react-native-localize\ios",
 				);
 			};
 			name = Release;

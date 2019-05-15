@@ -1,8 +1,10 @@
 import * as path from "path";
 import * as webpack from "webpack";
+import * as locales from "./sources/locales";
 
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const TerserPlugin = require("terser-webpack-plugin");
+const GenerateJsonPlugin = require("generate-json-webpack-plugin");
 
 const config: webpack.Configuration = {
     entry: {
@@ -61,7 +63,10 @@ const config: webpack.Configuration = {
     },
     plugins: <any>[
         new ExtractTextPlugin('styles/[name].styles.css'),
-        new TerserPlugin()
+        new TerserPlugin(),
+        ...Object.keys(locales).map((key) => {
+            return new GenerateJsonPlugin(`locales/${key}.json`, locales[key])
+        })
     ]
 };
 
