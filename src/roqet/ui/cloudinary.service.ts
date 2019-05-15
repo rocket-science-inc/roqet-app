@@ -1,11 +1,8 @@
 import env from "react-native-config";
+import cloudinary from "cloudinary-core";
 
-const CloudinaryService = require("cloudinary").v2;
-
-CloudinaryService.config({
-    cloud_name: env.CLOUDINARY_CLOUD_NAME, 
-    api_key: env.CLOUDINARY_API_KEY, 
-    api_secret: env.CLOUDINARY_API_SECRET
+const CloudinaryService = cloudinary.Cloudinary.new({
+    cloud_name: env.CLOUDINARY_CLOUD_NAME
 });
 
 export { CloudinaryService };

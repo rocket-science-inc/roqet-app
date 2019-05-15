@@ -5,6 +5,7 @@ declare namespace rct {
         image: ICloudinaryImage
     }
     interface ICloudinaryImage {
-        id: string
+        public_id: string,
+        format: string
     }
 }

@@ -11,13 +11,16 @@
   },
   "dependencies": {
     "axios": "^0.18.0",
-    "cloudinary": "^1.14.0",
+    "cloudinary-core": "^2.6.3",
+    "http": "^0.0.0",
     "https": "^1.0.0",
     "json-to-graphql-query": "^1.9.0",
     "native-base": "^2.12.1",
     "react": "16.8.3",
     "react-native": "0.59.8",
     "react-native-config": "^0.11.7",
+    "react-native-crypto": "^2.1.0",
+    "react-native-randombytes": "^3.0.0",
     "react-native-router-flux": "^4.0.6",
     "react-native-vector-icons": "^6.4.2",
     "react-redux": "^7.0.3",
@@ -55,5 +58,11 @@
   },
   "jest": {
     "preset": "react-native"
+  },
+  "react-native": {
+    "crypto": "react-native-crypto"
+  },
+  "browser": {
+    "crypto": "react-native-crypto"
   }
 }

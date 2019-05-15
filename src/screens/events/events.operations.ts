@@ -6,7 +6,11 @@ let QueryEvent = {
     pages: true,
     records: {
         id: true,
-        title: true
+        title: true,
+        image: {
+            public_id: true,
+            format: true
+        }
     }
 }
 
