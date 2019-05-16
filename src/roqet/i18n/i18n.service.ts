@@ -2,12 +2,46 @@ import { I18nManager } from "react-native";
 import * as RNLocalize from "react-native-localize";
 import i18next from "i18next";
 import memoize from "lodash/memoize";
-
-const en = require("./../../../assets/locales/en.json");
-const ru = require("./../../../assets/locales/ru.json");
-const ua = require("./../../../assets/locales/ua.json");
+import AsyncStorage,  {} from "@react-native-community/async-storage";
 
 export class I18N {
+
+    private translations:any = {
+        en: require("./../../../assets/locales/en.json"),
+        ru: require("./../../../assets/locales/ru.json"),
+        ua: require("./../../../assets/locales/ua.json")
+    };
+
+    private lngs: string[] = Object.keys(this.translations);
+
+    private getLocale():Promise<any> {
+        return AsyncStorage.getItem("persist:root").then(root => {
+            return root ? JSON.parse(root) : Promise.reject();
+        }).then(({ settings }) => {
+            return {
+                languageTag: JSON.parse(settings).locale,
+                isRTL: false
+            }
+        }).catch(() => {
+            return Promise.resolve(RNLocalize.findBestAvailableLanguage(this.lngs))
+        })
+    };
+
+    private i18nextInit({ languageTag, isRTL }):Promise<any> {
+        return Promise.resolve(I18nManager.forceRTL(isRTL)).then(() => {
+            return i18next.init({
+                fallbackLng: "en",
+                lng: languageTag,
+                ns: ["translations"],
+                defaultNS: "translations",
+                resources: ((locales) => {
+                    return Object.keys(locales).reduce((res, key) => {
+                        return {...res, [key]: { translations: locales[key] }}
+                    }, {})
+                })(this.translations)
+            })
+        })
+    };
 
     constructor(){
         I18nManager.forceRTL(false);
@@ -38,17 +72,8 @@ export class I18N {
     );
 
     public init():Promise<any> {
-        return i18next.init({
-            fallbackLng: "en",
-            lng: "en",
-            ns: ["translations"],
-            defaultNS: "translations",
-            resources: ((locales) => {
-                return Object.keys(locales).reduce((res, key) => {
-                    return {...res, [key]: { translations: locales[key] }}
-                }, {})
-            })({ en, ru, ua })
-        })
+        return this.getLocale()
+            .then(this.i18nextInit.bind(this))
     };
 
 };

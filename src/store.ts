@@ -31,5 +31,4 @@ export const Store = ((enhancer) => {
 
 export const Persistor = persistStore(Store);
 
-/* Uncomment to purge store */
-Persistor.purge()
+if(__DEV__) Persistor.purge();

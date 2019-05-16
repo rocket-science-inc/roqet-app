@@ -10,6 +10,7 @@
     "pre-run": "npm run assets && npm run icons"
   },
   "dependencies": {
+    "@react-native-community/async-storage": "^1.4.0",
     "axios": "^0.18.0",
     "cloudinary-core": "^2.6.3",
     "http": "^0.0.0",

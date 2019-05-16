@@ -15,7 +15,7 @@ export class ProfileScreen extends React.Component<rct.profile.IProps, rct.profi
                 <Header>
                     <Left>
                         <Button transparent onPress={() => Actions.pop()}>
-                            <Icon name="arrow-left" size={20} />
+                            <Icon name="chevron-left" size={20} />
                         </Button>
                     </Left>
                     <Body>

@@ -9,17 +9,24 @@ import { Store, Persistor } from "./store";
 
 const ReduxRouter = connect()(Router);
 
-export class Roqet extends Component {
+interface IState {
+	initalized: boolean
+};
+
+export class Roqet extends Component<any, IState> {
 
 	constructor(props){
-		super(props);
+		super(props); this.state = { initalized: false };
 	};
 
 	public componentWillMount():void {
-		i18n.init();
+		i18n.init().then(() => {
+			this.setState(() => ({ initalized: true }));
+		});
 	};
 
-	public render():JSX.Element {
+	public render():JSX.Element | null {
+		if (!this.state.initalized) return null;
 		return (
 			<Provider store={Store}>
 				<PersistGate /*loading={<Loader />}*/ persistor={Persistor}>
