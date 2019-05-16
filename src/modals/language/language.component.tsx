@@ -20,7 +20,7 @@ export class LanguageModal extends Component<rct.language.IProps, rct.language.I
     };
 
     private get languages():any[] {
-        return i18n.locales().map(locale => {
+        return i18n.languages().map(locale => {
             return {...locale, selected: locale.key == this.state.locale}
         })
     };
@@ -51,7 +51,9 @@ export class LanguageModal extends Component<rct.language.IProps, rct.language.I
     };
 
     private apply():void {
-        this.props.applyLocale(this.state.locale);
+        Promise.resolve(Actions.pop()).then(() => {
+            this.props.applyLocale(this.state.locale);
+        })
     };
 
     public render():any {

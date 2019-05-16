@@ -22,12 +22,12 @@ export const Scenes = Actions.create(
 				key="profile"
 				component={ProfileScreenContainer}
 			></Scene>
-			<Scene hideNavBar
+			<Scene hideNavBar initial
 				key="settings"
 				component={SettingsScreenContainer}
 			></Scene>
 		</Scene>
-		<Scene hideNavBar initial
+		<Scene hideNavBar
 			key="language"
 			component={LanguageModalContainer}
 		></Scene>

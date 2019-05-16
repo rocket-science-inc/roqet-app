@@ -3,9 +3,8 @@ import * as actions from "./language.actions";
 
 export const applyLocale = (locale:string) => {
     return (dispatch) => {
-        Promise.resolve(dispatch(actions.localeApplied(locale)))
-            .then(({ payload }) => {
-                return i18n.locale = payload
-            })
+        i18n.setLanguage(locale).then(locale => {
+            dispatch(actions.localeApplied(locale))
+        });
     }
 };

@@ -607,7 +607,7 @@
     pirates "^4.0.0"
     source-map-support "^0.5.9"
 
-"@babel/runtime@^7.0.0", "@babel/runtime@^7.4.3", "@babel/runtime@^7.4.4":
+"@babel/runtime@^7.0.0", "@babel/runtime@^7.3.1", "@babel/runtime@^7.4.3", "@babel/runtime@^7.4.4":
   version "7.4.4"
   resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.4.4.tgz#dc2e34982eb236803aa27a07fea6857af1b9171d"
   integrity sha512-w0+uT71b6Yi7i5SE0co4NioIpSYS6lLiXvCzWzGSKvpK5vdQtCbICHMj+gbAKAOtxiV6HsVh/MBdaF9EQ6faSg==
@@ -3629,6 +3629,13 @@ i18n-js@^3.2.2:
   version "3.2.2"
   resolved "https://registry.yarnpkg.com/i18n-js/-/i18n-js-3.2.2.tgz#9f7f552320c0e4cc6b35c50a790cc50465c7dc90"
   integrity sha512-CSTJelBrTDa54Utpj5BNEcplB4i/kXytjVNdQe4k/OQv1r9rVHtRZHWnhvRwkOrhdeJn7Wt05cv/rj5UT9Efhg==
+
+i18next@^15.1.1:
+  version "15.1.1"
+  resolved "https://registry.yarnpkg.com/i18next/-/i18next-15.1.1.tgz#2d60cdee151b019e171e44a666ccd6b704ac867a"
+  integrity sha512-yamlJ/hV8IcD7oqOrioR/l6Bn461+PqO3Y62fNb2VwNH+m37biYW4vvVMgSrbSww2HWwnx+VbOK2VUoxfvd1wQ==
+  dependencies:
+    "@babel/runtime" "^7.3.1"
 
 iconv-lite@0.4.24, iconv-lite@^0.4.17, iconv-lite@^0.4.4, iconv-lite@~0.4.13:
   version "0.4.24"

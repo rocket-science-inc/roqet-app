@@ -1,6 +1,6 @@
 import { I18nManager } from "react-native";
 import * as RNLocalize from "react-native-localize";
-import I18n from "i18n-js";
+import i18next from "i18next";
 import memoize from "lodash/memoize";
 
 const en = require("./../../../assets/locales/en.json");
@@ -10,39 +10,46 @@ const ua = require("./../../../assets/locales/ua.json");
 export class I18N {
 
     constructor(){
-        I18n.defaultLocale = "en";
-        I18n.locale = "en";
-        I18n.fallbacks = true;
-        I18n.translations = { en, ru, ua };
         I18nManager.forceRTL(false);
     };
 
-    public get locale():string {
-        return I18n.currentLocale()
+    public setLanguage(locale:string) {
+        return i18next.changeLanguage(locale).then(() => {
+            this.t.cache.clear(); return locale;
+        });
     };
 
-    public set locale(locale:string) {
-        I18n.locale = locale;
-        this.t.cache.clear();
-    };
-
-    public locales():any[] {
+    public languages():any[] {
         return [{
             key: "en",
-            label: I18n.t("locales.en")
+            label: this.t("locales.en")
         }, {
             key: "ua",
-            label: I18n.t("locales.ua")
+            label: this.t("locales.ua")
         }, {
             key: "ru",
-            label: I18n.t("locales.ru")
+            label: this.t("locales.ru")
         }]
     };
 
     public t = memoize(
-        (key, config) => I18n.t(key, config),
+        (key, config) => i18next.t(key, config),
         (key, config) => (config ? key + JSON.stringify(config) : key)
     );
+
+    public init():Promise<any> {
+        return i18next.init({
+            fallbackLng: "en",
+            lng: "en",
+            ns: ["translations"],
+            defaultNS: "translations",
+            resources: ((locales) => {
+                return Object.keys(locales).reduce((res, key) => {
+                    return {...res, [key]: { translations: locales[key] }}
+                }, {})
+            })({ en, ru, ua })
+        })
+    };
 
 };
 

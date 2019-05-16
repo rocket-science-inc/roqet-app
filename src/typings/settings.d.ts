@@ -1,7 +1,3 @@
-interface ILoadEventsParams {
-
-}
-
 declare namespace rct.settings {
     
     interface IState {
@@ -14,6 +10,8 @@ declare namespace rct.settings {
     interface IOterations {
     }
 
-    type IProps = IOterations & IReducer;
+    interface IProps extends IOterations, IReducer {
+
+    }
 
 }

@@ -11,8 +11,8 @@ import { Icon } from "@roqet/ui";
 export class SettingsScreen extends React.Component<rct.settings.IProps, rct.settings.IState> {
 
     private get language():string {
-        return i18n.locales().find(({ key }) => {
-            return key == i18n.locale
+        return i18n.languages().find(({ key }) => {
+            return key == this.props.locale
         }).label
     };
 
@@ -39,7 +39,7 @@ export class SettingsScreen extends React.Component<rct.settings.IProps, rct.set
                                 </Button>
                             </Left>
                             <Body>
-                                <Text>Language</Text>
+                                <Text>{i18n.t("language")}</Text>
                             </Body>
                             <Right>
                                 <Text>{this.language}</Text>
