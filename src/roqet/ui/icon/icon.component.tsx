@@ -13,7 +13,9 @@ interface IProps {
     name: string,
     active: boolean,
     ios: string,
-    android: string
+    android: string,
+    style: any,
+    size: number
 };
 
 class Icon extends Component<IProps> {
@@ -32,6 +34,7 @@ class Icon extends Component<IProps> {
         android: PropTypes.string,
         active: PropTypes.bool,
         type: PropTypes.string,
+        size: PropTypes.number
     };
 
     private getIconName():string {

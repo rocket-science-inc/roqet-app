@@ -29,20 +29,23 @@
 .rct-home:before {
 	content: "\f105";
 }
-.rct-md-radio-button-off:before {
+.rct-ios-checkmark:before {
 	content: "\f106";
 }
-.rct-md-radio-button-on:before {
+.rct-md-radio-button-off:before {
 	content: "\f107";
 }
-.rct-settings:before {
+.rct-md-radio-button-on:before {
 	content: "\f108";
 }
-.rct-user:before {
+.rct-settings:before {
 	content: "\f109";
 }
-.rct-x:before {
+.rct-user:before {
 	content: "\f10a";
+}
+.rct-x:before {
+	content: "\f10b";
 }
 
 /*# sourceMappingURL=assets.styles.css.map*/

@@ -42,7 +42,7 @@ export class EventsScreen extends React.Component<rct.events.IProps, rct.events.
                 <Header>
                     <Left>
                         <Button transparent onPress={() => Actions.push("profile")}>
-                            <Icon name="user" size={20} />
+                            <Icon name="user" style={{fontSize: 26}} />
                         </Button>
                     </Left>
                     <Body>

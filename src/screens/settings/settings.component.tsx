@@ -22,7 +22,7 @@ export class SettingsScreen extends React.Component<rct.settings.IProps, rct.set
                 <Header>
                     <Left>
                         <Button transparent onPress={() => Actions.pop()}>
-                            <Icon name="chevron-left" size={20} />
+                            <Icon name="chevron-left" />
                         </Button>
                     </Left>
                     <Body>
@@ -35,7 +35,7 @@ export class SettingsScreen extends React.Component<rct.settings.IProps, rct.set
                         <ListItem icon onPress={() => Actions.push("language")}>
                             <Left>
                                 <Button transparent>
-                                    <Icon name="globe" size={20} />
+                                    <Icon name="globe" />
                                 </Button>
                             </Left>
                             <Body>
@@ -43,7 +43,7 @@ export class SettingsScreen extends React.Component<rct.settings.IProps, rct.set
                             </Body>
                             <Right>
                                 <Text>{this.language}</Text>
-                                <Icon active name="chevron-right" size={20} />
+                                <Icon active name="chevron-right" />
                             </Right>
                         </ListItem>
                     </List>

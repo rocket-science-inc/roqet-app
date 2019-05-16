@@ -15,7 +15,7 @@ export class ProfileScreen extends React.Component<rct.profile.IProps, rct.profi
                 <Header>
                     <Left>
                         <Button transparent onPress={() => Actions.pop()}>
-                            <Icon name="chevron-left" size={20} />
+                            <Icon name="chevron-left" />
                         </Button>
                     </Left>
                     <Body>
@@ -23,7 +23,7 @@ export class ProfileScreen extends React.Component<rct.profile.IProps, rct.profi
                     </Body>
                     <Right>
                         <Button transparent onPress={() => Actions.push("settings")}>
-                            <Icon name="settings" size={20} />
+                            <Icon name="settings" style={{fontSize: 26}} />
                         </Button>
                     </Right>
                 </Header>

@@ -14,7 +14,7 @@ export const Scenes = Actions.create(
 			<Scene key="main" hideNavBar tabs={true} showLabel={false} lazy={false}>
 				<Scene hideNavBar 
 					key="main.home"
-					icon={() => <Icon name="home" size={22} />}
+					icon={() => <Icon name="home" style={{fontSize: 24}} />}
 					component={EventsScreenContainer}
 				/>
 			</Scene>
