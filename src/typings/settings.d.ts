@@ -8,6 +8,7 @@ declare namespace rct.settings {
     }
 
     interface IReducer {
+        locale: string
     }
 
     interface IOterations {

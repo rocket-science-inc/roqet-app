@@ -29,11 +29,17 @@
 .rct-home:before {
 	content: "\f105";
 }
-.rct-settings:before {
+.rct-md-radio-button-off:before {
 	content: "\f106";
 }
-.rct-user:before {
+.rct-md-radio-button-on:before {
 	content: "\f107";
+}
+.rct-settings:before {
+	content: "\f108";
+}
+.rct-user:before {
+	content: "\f109";
 }
 
 /*# sourceMappingURL=assets.styles.css.map*/

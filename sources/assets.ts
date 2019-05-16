@@ -1,3 +1,1 @@
-const RoqetFont = require("./icons/icons.font");
-
-(console.log)("done");
+const RoqetFont = require("./icons/roqet/icons.font");

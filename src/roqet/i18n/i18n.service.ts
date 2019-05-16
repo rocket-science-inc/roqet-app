@@ -23,6 +23,7 @@ export class I18N {
 
     public set locale(locale:string) {
         I18n.locale = locale;
+        this.t.cache.clear();
     };
 
     public locales():any[] {

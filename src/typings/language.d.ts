@@ -12,8 +12,11 @@ declare namespace rct.language {
     }
 
     interface IOterations {
+        applyLocale(locale:string):void;
     }
 
-    type IProps = IOterations & IReducer;
+    interface IProps extends IOterations {
+        locale: string
+    }
 
 }
