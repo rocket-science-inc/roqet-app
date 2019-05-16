@@ -1,19 +1,20 @@
 import { I18nManager } from "react-native";
-import * as RNLocalize from "react-native-localize";
+import { findBestAvailableLanguage } from "react-native-localize";
 import i18next from "i18next";
 import memoize from "lodash/memoize";
 import AsyncStorage,  {} from "@react-native-community/async-storage";
 
+export const translations:any = {
+    en: require("./../../../assets/locales/en.json"),
+    ru: require("./../../../assets/locales/ru.json"),
+    ua: require("./../../../assets/locales/ua.json")
+};
+
+export const defaultLang:any = findBestAvailableLanguage(
+    Object.keys(translations)
+);
+
 export class I18N {
-
-    private translations:any = {
-        en: require("./../../../assets/locales/en.json"),
-        ru: require("./../../../assets/locales/ru.json"),
-        ua: require("./../../../assets/locales/ua.json")
-    };
-
-    private lngs: string[] = Object.keys(this.translations);
-
     private getLocale():Promise<any> {
         return AsyncStorage.getItem("persist:root").then(root => {
             return root ? JSON.parse(root) : Promise.reject();
@@ -22,9 +23,7 @@ export class I18N {
                 languageTag: JSON.parse(settings).locale,
                 isRTL: false
             }
-        }).catch(() => {
-            return Promise.resolve(RNLocalize.findBestAvailableLanguage(this.lngs))
-        })
+        }).catch(() => Promise.resolve(defaultLang))
     };
 
     private i18nextInit({ languageTag, isRTL }):Promise<any> {
@@ -38,7 +37,7 @@ export class I18N {
                     return Object.keys(locales).reduce((res, key) => {
                         return {...res, [key]: { translations: locales[key] }}
                     }, {})
-                })(this.translations)
+                })(translations)
             })
         })
     };

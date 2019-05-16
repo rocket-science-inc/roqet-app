@@ -26,14 +26,16 @@ export class Roqet extends Component<any, IState> {
 	};
 
 	public render():JSX.Element | null {
-		if (!this.state.initalized) return null;
-		return (
-			<Provider store={Store}>
-				<PersistGate /*loading={<Loader />}*/ persistor={Persistor}>
-					<ReduxRouter scenes={Scenes} />
-				</PersistGate>
-			</Provider>
-		)
+		if (this.state.initalized) {
+			return (
+				<Provider store={Store}>
+					<PersistGate /*loading={<Loader />}*/ persistor={Persistor}>
+						<ReduxRouter scenes={Scenes} />
+					</PersistGate>
+				</Provider>
+			)
+		}; return null;
+		
 	};
 
 };

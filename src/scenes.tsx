@@ -22,7 +22,7 @@ export const Scenes = Actions.create(
 				key="profile"
 				component={ProfileScreenContainer}
 			></Scene>
-			<Scene hideNavBar initial
+			<Scene hideNavBar
 				key="settings"
 				component={SettingsScreenContainer}
 			></Scene>

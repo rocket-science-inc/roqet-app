@@ -1,7 +1,8 @@
 import { TYPES } from "@/configs/types";
+import { defaultLang } from "@roqet/i18n";
 
 let initState:rct.settings.IReducer = {
-	locale: "en"
+	locale: defaultLang.languageTag
 };
 
 export const SettingsScreenReducer = (state:any = initState, {type, payload}:any) => {

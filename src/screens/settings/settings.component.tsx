@@ -17,7 +17,6 @@ export class SettingsScreen extends React.Component<rct.settings.IProps, rct.set
     };
 
     public render():any {
-        console.log(i18n.t("language"))
         return (
             <Container>
                 <Header>
