@@ -13,7 +13,8 @@ const glyphMap = {
   "md-radio-button-off": 61702,
   "md-radio-button-on": 61703,
   "settings": 61704,
-  "user": 61705
+  "user": 61705,
+  "x": 61706
 };
 
 const iconSet = createIconSet(glyphMap, 'Roqet', 'Roqet.ttf');

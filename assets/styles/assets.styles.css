@@ -41,5 +41,8 @@
 .rct-user:before {
 	content: "\f109";
 }
+.rct-x:before {
+	content: "\f10a";
+}
 
 /*# sourceMappingURL=assets.styles.css.map*/

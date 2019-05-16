@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Platform } from "react-native";
 import {
 	Container, Content, Body, Button,
     Header, Title, Left, Right, List,
@@ -46,6 +47,13 @@ export class LanguageModal extends Component<rct.language.IProps, rct.language.I
         })
     };
 
+    private get close():JSX.Element {
+        return Platform.select({
+            ios: <Text>{i18n.t("buttons.close")}</Text>,
+            android: <Icon name="x" size={20}></Icon>
+        })
+    }
+
     private select(locale:string):void {
         this.setState((state) => ({ locale }));
     };
@@ -62,7 +70,7 @@ export class LanguageModal extends Component<rct.language.IProps, rct.language.I
                 <Header>
                     <Left>
                         <Button transparent onPress={() => Actions.pop()}>
-                            <Text>{i18n.t("buttons.close")}</Text>
+                            {this.close}
                         </Button>
                     </Left>
                     <Body>
