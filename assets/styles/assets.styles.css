@@ -23,29 +23,32 @@
 .rct-chevron-right:before {
 	content: "\f103";
 }
-.rct-globe:before {
+.rct-facebook:before {
 	content: "\f104";
 }
-.rct-home:before {
+.rct-globe:before {
 	content: "\f105";
 }
-.rct-ios-checkmark:before {
+.rct-home:before {
 	content: "\f106";
 }
-.rct-md-radio-button-off:before {
+.rct-ios-checkmark:before {
 	content: "\f107";
 }
-.rct-md-radio-button-on:before {
+.rct-md-radio-button-off:before {
 	content: "\f108";
 }
-.rct-settings:before {
+.rct-md-radio-button-on:before {
 	content: "\f109";
 }
-.rct-user:before {
+.rct-settings:before {
 	content: "\f10a";
 }
-.rct-x:before {
+.rct-user:before {
 	content: "\f10b";
+}
+.rct-x:before {
+	content: "\f10c";
 }
 
 /*# sourceMappingURL=assets.styles.css.map*/

@@ -8,14 +8,15 @@ const glyphMap = {
   "check": 61697,
   "chevron-left": 61698,
   "chevron-right": 61699,
-  "globe": 61700,
-  "home": 61701,
-  "ios-checkmark": 61702,
-  "md-radio-button-off": 61703,
-  "md-radio-button-on": 61704,
-  "settings": 61705,
-  "user": 61706,
-  "x": 61707
+  "facebook": 61700,
+  "globe": 61701,
+  "home": 61702,
+  "ios-checkmark": 61703,
+  "md-radio-button-off": 61704,
+  "md-radio-button-on": 61705,
+  "settings": 61706,
+  "user": 61707,
+  "x": 61708
 };
 
 const iconSet = createIconSet(glyphMap, 'Roqet', 'Roqet.ttf');

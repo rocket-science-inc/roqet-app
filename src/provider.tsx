@@ -1,6 +1,7 @@
 import React, { Component } from "react"
 import { Provider, connect } from "react-redux";
 import { Router } from "react-native-router-flux"
+import StyleSheet from "react-native-extended-stylesheet";
 import { PersistGate } from "redux-persist/integration/react";
 import { i18n } from "@roqet/i18n";
 
@@ -9,11 +10,9 @@ import { Store, Persistor } from "./store";
 
 const ReduxRouter = connect()(Router);
 
-interface IState {
-	initalized: boolean
-};
+StyleSheet.build();
 
-export class Roqet extends Component<any, IState> {
+export class Roqet extends Component<any, rct.provider.IState> {
 
 	constructor(props){
 		super(props); this.state = { initalized: false };

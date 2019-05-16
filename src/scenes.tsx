@@ -5,6 +5,7 @@ import { Icon } from "@roqet/ui";
 import { EventsScreenContainer } from "@/screens/events/events.container";
 import { ProfileScreenContainer } from "@/screens/profile/profile.container";
 import { SettingsScreenContainer } from "./screens/settings/settings.container";
+import { LoginScreenContainer } from "@/screens/login/login.container";
 
 import { LanguageModalContainer } from "@/modals/language/language.container";
 
@@ -25,6 +26,10 @@ export const Scenes = Actions.create(
 			<Scene hideNavBar
 				key="settings"
 				component={SettingsScreenContainer}
+			></Scene>
+			<Scene hideNavBar initial
+				key="login"
+				component={LoginScreenContainer}
 			></Scene>
 		</Scene>
 		<Scene hideNavBar
