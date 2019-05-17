@@ -25,10 +25,16 @@ export class LoginScreen extends React.Component<rct.login.IProps, rct.login.ISt
             })
     };
 
-    public componentDidMount():void {
-        RctApi.facebook.me().then(data => {
+    private google():void {
+        RctApi.auth.google().then((data) => {
             console.log(data)
         })
+    };
+
+    public componentDidMount():void {
+        // RctApi.facebook.me().then(data => {
+        //     console.log(data)
+        // })
     };
 
     public render():any {
@@ -46,7 +52,11 @@ export class LoginScreen extends React.Component<rct.login.IProps, rct.login.ISt
                                     {i18n.t("buttons.loginWithFacebook")}
                                 </Text>
                             </Button>
-                            <Button iconLeft danger style={Styles.button}>
+                            <Button
+                                iconLeft danger style={Styles.button}
+                                onPress={this.google.bind(this)}
+                            >
+                                <Icon name="mail" />
                                 <Text style={Styles.label}>
                                     {i18n.t("buttons.loginWithGoogle")}
                                 </Text>

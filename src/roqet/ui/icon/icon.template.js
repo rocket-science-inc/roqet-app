@@ -12,11 +12,12 @@ const glyphMap = {
   "globe": 61701,
   "home": 61702,
   "ios-checkmark": 61703,
-  "md-radio-button-off": 61704,
-  "md-radio-button-on": 61705,
-  "settings": 61706,
-  "user": 61707,
-  "x": 61708
+  "mail": 61704,
+  "md-radio-button-off": 61705,
+  "md-radio-button-on": 61706,
+  "settings": 61707,
+  "user": 61708,
+  "x": 61709
 };
 
 const iconSet = createIconSet(glyphMap, 'Roqet', 'Roqet.ttf');
