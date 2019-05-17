@@ -4,7 +4,10 @@ import { EventsScreen } from "./events.component";
 import * as EventsScreenOperations from "./events.operations";
 
 export const EventsScreenContainer = connect((state:any, props:any) => {
-	return state.events
+	return {
+		...state.events,
+		me: state.profile.me
+	}
 }, (dispatch:any) => {
 	return bindActionCreators(EventsScreenOperations, dispatch)
 })(EventsScreen);

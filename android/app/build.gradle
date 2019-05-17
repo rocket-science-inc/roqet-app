@@ -144,6 +144,7 @@ repositories {
 }
 
 dependencies {
+    implementation project(':react-native-splash-screen')
     implementation project(':react-native-google-signin')
     implementation project(':react-native-fbsdk')
     implementation project(':@react-native-community_async-storage')

@@ -21,6 +21,8 @@ declare namespace rct.events {
         loadEvents: (params:rct.api.IEventQueryParams) => void
     }
 
-    type IProps = IOterations & IReducer;
+    interface IProps extends IOterations, IReducer {
+        me: rct.profile.IMe
+    }
 
 }

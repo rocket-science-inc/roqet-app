@@ -3,7 +3,6 @@ import {
 	Container, Content, Button,
     View, Text
 } from "native-base";
-import { LoginManager, AccessToken } from "react-native-fbsdk";
 import { Actions } from "react-native-router-flux";
 import { i18n } from "@roqet/i18n";
 import { Icon } from "@roqet/ui";
@@ -13,28 +12,15 @@ import { RctApi } from "@roqet/api";
 export class LoginScreen extends React.Component<rct.login.IProps, rct.login.IState> {
 
     private facebook():void {
-        LoginManager.logInWithReadPermissions(["public_profile", "email", "user_gender", "user_link"])
-            .then((result) => {
-                return AccessToken.getCurrentAccessToken()
-            })
-            .then((data) => {
-                console.log(data)
-            })
-            .catch((err) => {
-                console.error(err)
-            })
+        RctApi.auth.facebook().then((data) => {
+            console.log(data)
+        })
     };
 
     private google():void {
         RctApi.auth.google().then((data) => {
             console.log(data)
         })
-    };
-
-    public componentDidMount():void {
-        // RctApi.facebook.me().then(data => {
-        //     console.log(data)
-        // })
     };
 
     public render():any {

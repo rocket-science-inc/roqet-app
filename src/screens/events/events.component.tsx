@@ -33,6 +33,7 @@ export class EventsScreen extends React.Component<rct.events.IProps, rct.events.
     };
 
     public componentDidMount(){
+        console.log(this.props.me)
         // this.load();
     };
 
