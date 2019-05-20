@@ -6,9 +6,9 @@ import { InitialScreenContainer } from "@/screens/initial/initial.container";
 import { EventsScreenContainer } from "@/screens/events/events.container";
 import { ProfileScreenContainer } from "@/screens/profile/profile.container";
 import { SettingsScreenContainer } from "./screens/settings/settings.container";
-import { LoginScreenContainer } from "@/screens/login/login.container";
 
 import { LanguageModalContainer } from "@/modals/language/language.container";
+import { LoginModalContainer } from "@/modals/login/login.container";
 
 export const Scenes = Actions.create(
 	<Modal hideNavBar>
@@ -32,11 +32,11 @@ export const Scenes = Actions.create(
 				key="settings"
 				component={SettingsScreenContainer}
 			></Scene>
-			<Scene hideNavBar
-				key="login"
-				component={LoginScreenContainer}
-			></Scene>
 		</Scene>
+		<Scene hideNavBar
+			key="login"
+			component={LoginModalContainer}
+		></Scene>
 		<Scene hideNavBar
 			key="language"
 			component={LanguageModalContainer}

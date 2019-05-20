@@ -23,6 +23,19 @@ export class EventsScreen extends React.Component<rct.events.IProps, rct.events.
         return this.props.page < this.props.pages && !this.props.loading
     };
 
+    private goTo(route:string):void {
+        if (route == "profile" && this.props.me) {
+            Actions.push("profile");
+        } else if (route == "profile" && !this.props.me) {
+            Actions.push("login", {
+                showClose: true,
+                redirectTo: "profile"
+            });
+        } else {
+            Actions.push(route);
+        }
+    };
+
     private load():void {
         if (this.hasMoreRecords) {
             this.props.loadEvents({
@@ -42,7 +55,7 @@ export class EventsScreen extends React.Component<rct.events.IProps, rct.events.
             <Container>
                 <Header>
                     <Left>
-                        <Button transparent onPress={() => Actions.push("profile")}>
+                        <Button transparent onPress={() => this.goTo("profile")}>
                             <Icon name="user" style={{fontSize: 26}} />
                         </Button>
                     </Left>
