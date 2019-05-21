@@ -14,15 +14,15 @@ class GraphRequests {
                     string: "id, name, email, gender, first_name, last_name, link, picture.height(300).width(300)"
                 }
             }
-        }, (error, result:any) => {
-            if (error) reject(error)
+        }, (error:any, result:any) => {
+            if (error) reject({
+                errors: [error.errorMessage]
+            })
             else resolve({
                 email: result.email,
                 firstName: result.first_name,
-                gender: result.gender,
                 id: result.id,
                 lastName: result.last_name,
-                link: result.link,
                 fullName: result.name
             })
         })

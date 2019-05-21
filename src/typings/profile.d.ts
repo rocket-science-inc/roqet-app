@@ -3,10 +3,8 @@ declare namespace rct.profile {
     interface IMe {
         email: string
         firstName: string
-        gender: string
         id: string
         lastName: string
-        link?: string,
         fullName: string,
         picture: string
     }

@@ -1,8 +1,10 @@
 import * as React from "react";
 import {
 	Container, Content, Body, Button,
-    Header, Title, Left, Right, Spinner
+    Header, Title, Left, Right, Spinner,
+    Thumbnail
 } from "native-base";
+import { TouchableOpacity } from "react-native";
 import { FlatList, Dimensions } from "react-native";
 import { Actions } from "react-native-router-flux";
 import { EventCard } from "@common/components";
@@ -21,6 +23,22 @@ export class EventsScreen extends React.Component<rct.events.IProps, rct.events.
 
     private get hasMoreRecords():boolean {
         return this.props.page < this.props.pages && !this.props.loading
+    };
+
+    private get userAvatar():JSX.Element {
+        if (this.props.me) {
+            return (
+                <TouchableOpacity onPress={() => this.goTo("profile")}>
+                    <Thumbnail small source={{uri: this.props.me.picture}} />
+                </TouchableOpacity>
+            )
+        } else {
+            return (
+                <Button transparent onPress={() => this.goTo("profile")}>
+                    <Icon name="user" style={{fontSize: 26}} />
+                </Button>
+            )
+        }
     };
 
     private goTo(route:string):void {
@@ -55,9 +73,7 @@ export class EventsScreen extends React.Component<rct.events.IProps, rct.events.
             <Container>
                 <Header>
                     <Left>
-                        <Button transparent onPress={() => this.goTo("profile")}>
-                            <Icon name="user" style={{fontSize: 26}} />
-                        </Button>
+                        {this.userAvatar}
                     </Left>
                     <Body>
                         <Title>{i18n.t("name")}</Title>

@@ -40,5 +40,19 @@ export const Styles = StyleSheet.create({
         zIndex: 2,
         alignItems: "center",
         justifyContent: "center"
+    },
+    errors: {
+        display: "flex",
+        alignItems: "center",
+        position: "absolute",
+        textAlign: "center",
+        left: 0,
+        top: 50,
+        right: 0,
+        padding: 8
+    },
+    errorText: {
+        color: "red",
+        textAlign: "center"
     }
 });

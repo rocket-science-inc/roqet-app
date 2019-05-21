@@ -1,28 +1,25 @@
 import { GoogleSignin } from "react-native-google-signin";
 import { LoginManager, AccessToken } from "react-native-fbsdk";
 import { FacebookResource } from "./auth.facebook";
+import { GoogleResource } from "./auth.google";
 
 export class AuthResource {
 
     private fb: FacebookResource;
+    private ggl: GoogleResource;
 
     constructor(){
-        GoogleSignin.configure();
-        // LoginManager.logOut();
-        // GoogleSignin.signOut();
+        GoogleSignin.configure({
+            // scopes: ["https://www.googleapis.com/oauth2/userinfo"]
+        });
+        LoginManager.logOut();
+        GoogleSignin.signOut();
         this.fb = new FacebookResource();
+        this.ggl = new GoogleResource();
     };
-
-    private isGoogleAuthorized():Promise<any> {
-        return GoogleSignin.isSignedIn()
-    };
-
-    // private meGoogle():Promise<rct.profile.IMe> {
-    //     return Promise.resolve({})
-    // };
 
     public google():Promise<any> {
-        return GoogleSignin.signIn();
+        return this.ggl.login()
     };
 
     public facebook():Promise<any> {
@@ -31,15 +28,15 @@ export class AuthResource {
 
     public isAuthorized():Promise<any> {
         return Promise.all([
-            this.isGoogleAuthorized(),
+            this.ggl.isAuthorized(),
             this.fb.isAuthorized()
         ]).then(([google, facebook]) => {
-            return {google, facebook}
+            return { google, facebook }
         });
     };
 
     public me({google, facebook}:any):Promise<rct.profile.IMe | null> {
-        // if (google) return this.meGoogle()
+        if (google) return this.ggl.me();
         if (facebook) return this.fb.me();
         return Promise.resolve(null);
     };

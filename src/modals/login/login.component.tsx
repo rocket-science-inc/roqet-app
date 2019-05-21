@@ -40,9 +40,29 @@ export class LoginModal extends React.Component<rct.login.IProps, rct.login.ISta
         }; return null;
     };
 
-    private redirect():void {
-        Actions.pop();
-        Actions.push(this.props.redirectTo);
+    private get errors():JSX.Element | null {
+        if (this.props.errors.length) {
+            return (
+                <View style={Styles.errors}>
+                    {this.props.errors.map((error, index) => {
+                        return <Text style={Styles.errorText} key={index}>{error}</Text>
+                    })}
+                </View>
+            )
+        }; return null;
+    };
+
+    private login(provider:string):void {
+        this.props.login(provider).then((status) => {
+            if (status) {
+                Actions.pop();
+                Actions.push(this.props.redirectTo);
+            }
+        })
+    };
+
+    public componentWillUnmount():void {
+        this.props.reset();
     };
 
     public render():any {
@@ -51,11 +71,12 @@ export class LoginModal extends React.Component<rct.login.IProps, rct.login.ISta
                 {this.header}
                 {this.spinner}
                 <Content padder contentContainerStyle={Styles.container}>
+                    {this.errors}
                     <View style={Styles.login}>
                         <View style={Styles.wrapper}>
                             <Button
                                 iconLeft primary style={Styles.button}
-                                onPress={() => this.props.loginWithFacebook().then(this.redirect.bind(this))}
+                                onPress={() => this.login("facebook")}
                             >
                                 <Icon name="facebook" />
                                 <Text style={Styles.label}>
@@ -64,7 +85,7 @@ export class LoginModal extends React.Component<rct.login.IProps, rct.login.ISta
                             </Button>
                             <Button
                                 iconLeft danger style={Styles.button}
-                                onPress={() => this.props.loginWithGoogle()}
+                                onPress={() => this.login("google")}
                             >
                                 <Icon name="mail" />
                                 <Text style={Styles.label}>

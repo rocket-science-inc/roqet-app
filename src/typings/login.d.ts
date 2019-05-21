@@ -4,12 +4,13 @@ declare namespace rct.login {
     }
 
     interface IReducer {
-        loading: boolean
+        loading: boolean,
+        errors: string[]
     }
 
     interface IOterations {
-        loginWithFacebook: () => Promise<any>,
-        loginWithGoogle: () => Promise<any>
+        login: (provider: string) => Promise<any>
+        reset: () => void
     }
 
     interface IProps extends IReducer, IOterations {
