@@ -60,3 +60,4 @@ buck-out/
 *.jsbundle
 assets
 /yarn.lock
+/assets
